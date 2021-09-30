@@ -5,11 +5,11 @@ hero = {
 Army = []
 id = 0
 
-def addSkeleton(z):
+def addSkeleton(z,q,y):
     global Army
     global id
     id += 1
-    army1 ={'Name': z,'ID': id,'health':20,'damage':10}
+    army1 ={'Name': z,'ID': id,'health':q,'damage':y}
     Army.append(army1)
     print('\n\nUnit added\n')
     return
@@ -21,7 +21,7 @@ def deletiSkel(z):
             continue
         if Army[i] == z:
             skelt: dict = Army[i] 
-            skelt.clear()
+            skelt.pop()
     return
     
 def alfind(id, Army):
@@ -34,7 +34,7 @@ def fight(x):
     global Army
     global hero
     z=0
-    if len(Army[x-1]) == 1:
+    if len(Army[x-1]) == 0:
         print('Skeleton with this ID dead or not exists\n')
         return
     #raunds
@@ -45,7 +45,7 @@ def fight(x):
         Army[x-1]['health'] = Army[x-1]['health'] - hero['damage']
         if Army[x-1]['health'] == 0:
             skelt: dict = Army[x-1] 
-            skelt.clear()
+            skelt.pop()
             currHealth = hero['health']
             print(f'\n\nSkeleton can attak, he die after\nHero:\nHealth:{currHealth}\n')
             return
@@ -67,7 +67,14 @@ while True:
     #add unit
     if v.split(' ')[0] == 'add':
         x = v.split(' ')[1]
-        addSkeleton(x)
+        if len(v.split(' ')) == 2:
+            addSkeleton(x,20,10)
+        elif len(v.split(' ')) == 4:
+            q = int(v.split(' ')[2])
+            y = int(v.split(' ')[3])
+            addSkeleton(x,q,y)
+        else:
+            print('Unknown characteristics')
         continue
     #find
     elif v.split(' ')[0] == 'find':
@@ -84,7 +91,6 @@ while True:
         continue
     elif v.split(' ')[0] == 'show':
         for i in range(len(Army)):
-            if len(Army[i]) != 1:
-                print(Army[i])
+            print(Army[i])
     elif v.split(' ')[0] == 'out':
         break
