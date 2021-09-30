@@ -59,7 +59,7 @@ def fight(x):
             currHealth = hero['health']
             currHealth2 = Army[x-1]['health']
             print(f'Hero:{ currHealth }\nSkeleton:{ currHealth2 }')
-        return
+
 
 while True:
     print('\n\n For create new unit write: \'add unit\'\nFor delete unit write: \'add (ID)\'\nFor attack hero write: \'fight (ID)\'\nFor out write: \'out\'\n\n')
@@ -82,5 +82,9 @@ while True:
         x = int(v.split(' ')[1])
         deletiSkel(x)
         continue
+    elif v.split(' ')[0] == 'show':
+        for i in Army:
+            if len(Army[i]) != 1:
+                print(Army[i])
     elif v.split(' ')[0] == 'out':
         break
