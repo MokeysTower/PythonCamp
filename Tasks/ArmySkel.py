@@ -5,12 +5,11 @@ hero = {
 Army = []
 id = 0
 
-def addSkeleton():
+def addSkeleton(z):
     global Army
     global id
-    x = input('Name of unit \n')
     id += 1
-    army1 ={'Name': x,'ID': id,'health':20,'damage':10}
+    army1 ={'Name': z,'ID': id,'health':20,'damage':10}
     Army.append(army1)
     print('\n\nUnit added\n')
     return
@@ -62,12 +61,13 @@ def fight(x):
 
 
 while True:
-    print('\n\n For create new unit write: \'add unit\'\nFor delete unit write: \'add (ID)\'\nFor attack hero write: \'fight (ID)\'\nFor out write: \'out\'\n\n')
+    print('\n\nFor create new unit write: \'add (name)\'\nFor delete unit write: \'add (ID)\'\nFor attack hero write: \'fight (ID)\'\nFor out write: \'out\'\n\n')
     v = input('What we wiil do?').lower()
 
     #add unit
     if v.split(' ')[0] == 'add':
-        addSkeleton()
+        x = v.split(' ')[1]
+        addSkeleton(x)
         continue
     #find
     elif v.split(' ')[0] == 'find':
@@ -83,7 +83,7 @@ while True:
         deletiSkel(x)
         continue
     elif v.split(' ')[0] == 'show':
-        for i in Army:
+        for i in range(len(Army)):
             if len(Army[i]) != 1:
                 print(Army[i])
     elif v.split(' ')[0] == 'out':
