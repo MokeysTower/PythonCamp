@@ -12,7 +12,7 @@ def addSkeleton():
     id += 1
     army1 ={'Name': x,'ID': id,'health':20,'damage':10}
     Army.append(army1)
-    print('Unit added\n')
+    print('\n\nUnit added\n')
     return
 
 def deletiSkel(z):
@@ -62,7 +62,7 @@ def fight(x):
         return
 
 while True:
-    print('\n\n For create new unit write: \'add unit\'')
+    print('\n\n For create new unit write: \'add unit\'\nFor delete unit write: \'add (ID)\'\nFor attack hero write: \'fight (ID)\'\n\n')
     v = input('What we wiil do?').lower()
 
     #add unit
