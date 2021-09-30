@@ -62,7 +62,7 @@ def fight(x):
         return
 
 while True:
-    print('\n\n For create new unit write: \'add unit\'\nFor delete unit write: \'add (ID)\'\nFor attack hero write: \'fight (ID)\'\n\n')
+    print('\n\n For create new unit write: \'add unit\'\nFor delete unit write: \'add (ID)\'\nFor attack hero write: \'fight (ID)\'\nFor out write: \'out\'\n\n')
     v = input('What we wiil do?').lower()
 
     #add unit
@@ -72,11 +72,15 @@ while True:
     #find
     elif v.split(' ')[0] == 'find':
         x = int(v.split(' ')[1])
-        alfind(x, Army)
-        print()
+        print(alfind(x, Army))
+        continue
     elif v.split(' ')[0] == 'fight':
         x = int(v.split(' ')[1])
         fight(x)
+        continue
     elif v.split(' ')[0] == 'del':
         x = int(v.split(' ')[1])
         deletiSkel(x)
+        continue
+    elif v.split(' ')[0] == 'out':
+        break
