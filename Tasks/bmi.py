@@ -1,5 +1,17 @@
-mass = float(input('Write your weight (kg) '))
-tall = abs((pow(float(input('write your tall (meters) ')), 2)))
+def ask(t):
+    while True:
+        try:
+            x = float(input(t))
+            if x <= 0:
+                raise
+        except:
+            continue
+        else: 
+            return x
+
+
+mass = ask('Write your weight (kg)\n')
+tall = abs((pow(ask('write your tall (meters)\n'), 2)))
 BMI = mass / tall
 print('BMI=', mass / tall)
 if (BMI < 18.5):
