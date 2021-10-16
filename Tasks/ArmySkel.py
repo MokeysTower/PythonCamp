@@ -1,3 +1,6 @@
+import math
+import random 
+
 hero = { 
     'health': 100,
     'damage': 10
@@ -9,7 +12,7 @@ def addSkeleton(z,q,y):
     global Army
     global id
     id += 1
-    army1 ={'Name': z,'ID': id,'health':q,'damage':y}
+    army1 ={'Name': z,'ID': id,'health': round(random.randint(10,30) * 2.35) ,'damage':y}
     Army.append(army1)
     print('\n\nUnit added\n')
     return
@@ -45,7 +48,7 @@ def fight(x):
         z +=1
         print('\n\nРаунд', z)
         #Hero attacks
-        Army[x-1]['health'] = Army[x-1]['health'] - hero['damage']
+        Army[x-1]['health'] = Army[x-1]['health'] - random.randint(10,30)
         if Army[x-1]['health'] == 0:
             skelt: dict = Army[x-1] 
             skelt.clear()
@@ -53,7 +56,7 @@ def fight(x):
             print(f'\n\nSkeleton can attak, he die after\nHero:\nHealth:{currHealth}\n')
             return
         elif Army[x-1]['health'] != 0:
-            hero['health'] -= Army[x-1]['damage']
+            hero['health'] -= random.randint(10,30)
             if hero['health'] <= 0:
                 currHealth = Army[x-1]['health']
                 print(f'\n\nHero dead.\n\nSkeleton:\nHealth:{currHealth}\n')

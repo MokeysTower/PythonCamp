@@ -1,0 +1,13 @@
+Salary: +2000
+Rent: -1000
+Taxes: -100
+Out-of-pocket medical costs: -120
+Electricity: -100
+Stocks: +200
+Water: -10
+Food: -300
+Car payment: -100
+Public transportation: -20
+Internet: -30
+Cell phone and/or landline: -100
+Sum:320 
