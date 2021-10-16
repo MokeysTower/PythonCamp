@@ -31,7 +31,7 @@ weapons = [
 
 arr = [food,spells,weapons]
 while True:
-    UserName = input('Welcome,How I can call you?\n').lower() 
+    UserName = input('Welcome,How I can call you?\n').lower()
     if UserName == 'manager close':
         break
     elif len(UserName.lower().split(' ')) == 5:
