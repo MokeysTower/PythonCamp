@@ -1,0 +1,20 @@
+#for this programm place this program near file (in same folder)
+x = input('Write please file name (only name)\n').replace( '.txt', '' )
+
+try:
+    with open(f'{x}.txt','r') as h:
+        y = h.readlines()
+        h.close()
+    z = []
+    for i in range(len(y)):
+        y2 = y[i].split(' ')
+        z.append(y2[-1])
+    f=0
+    for i in range(len(z)):
+       f += int(z[i])
+    print(f)
+    h = open(f'{x}.txt','a')
+    h.write(f'\nSum:{f} ')
+    h.close()
+except Exception as e:
+    print('Can\'t found file',e)
